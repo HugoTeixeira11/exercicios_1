@@ -21,7 +21,7 @@ if __name__ == '__main__':
         print(f'A frase tem {len(nl)} palavras')
         for char in frase:
             if char in vogais:
-                vogais_count += 1
+                vogais_count = vogais_count + 1
         print(f'A frase tem {vogais_count} vogais')
         continuar = input('Repetir [s | n] ? ')
     print(f'Adeus!')
