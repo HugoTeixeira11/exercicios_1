@@ -11,17 +11,33 @@ Após o utilizador ter inderido a frase apresente:
 """
 
 
+import re
 if __name__ == '__main__':
-    vogais_count = 0
-    vogais = set('aeiouAEIOU')
-    continuar = 's'
-    while continuar == 's':
-        frase = str(input('Insira uma frase: '))
-        nl = frase.split(' ')
-        print(f'A frase tem {len(nl)} palavras')
-        for char in frase:
-            if char in vogais:
-                vogais_count = vogais_count + 1
-        print(f'A frase tem {vogais_count} vogais')
-        continuar = input('Repetir [s | n] ? ')
-    print(f'Adeus!')
+    frase_list = []
+    frase = str(input('Insira uma frase: '))
+
+
+    num_palavras = len(frase.split(' '))
+    num_mai = 0
+    num_min = 0
+    num_vogais = 0
+    for x in range(len(frase)):
+        if (frase[x].islower()):
+            num_min += 1
+        elif (frase[x].isupper()):
+            num_mai += 1
+        if frase[x] == 'a' or frase[x] == 'e' or frase[x] == 'i' or frase[x] == 'o' or frase[x] == 'u' or frase[x] == 'A' or frase[x] == 'E' or frase[x] == 'I' or frase[x] == 'O' or frase[x] == 'U':
+            num_vogais += 1
+
+    num_letras = (num_mai + num_min)
+
+    print(f'A é frase escrita foi "{frase_list}"')
+    print(f'A frase contém {num_palavras} palavras')
+    print(f'A frase contém {num_letras} letras')
+    print(f'A frase contém {num_vogais} vogais')
+    print(f'A frase contém {num_mai} letras maiusculas')
+    print(f'A frase contém {num_min} letras minusculas')
+    reversed_frase = ''
+    for i in reversed(frase):
+        reversed_frase += i
+    print(f'A é frase escrita quanto invertida fica "{reversed_frase}"')
