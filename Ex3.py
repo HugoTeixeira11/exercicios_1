@@ -28,7 +28,7 @@ def impar(num):
 if __name__ == '__main__':
   num_ini = int(input(f'Qual é o número inicial? '))
   num_end = int(input(f'Qual é o número final? '))
-  opcao = int(input(f'Qual opção deseja [par - 1, impar - 2, primo - 3]? '))
+  opcao = int(input(f'Qual a opção ? [par - 1, impar - 2, primo - 3]? '))
 
   num_random = 0
   list_random = []
