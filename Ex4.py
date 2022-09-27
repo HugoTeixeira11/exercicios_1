@@ -27,9 +27,11 @@ if __name__ == '__main__':
     for x in range(1, len(vendas)):
         if vendas[x] < menor:
             menor = vendas[x]
-            print(f'O maior é {maior} na ilha {ilha[comprimento_ilhas]} ')
         if vendas[x] > maior:
             maior = vendas[x]
-        print(f'O maior é {maior} na ilha {ilha} e o menor é {menor} na ilha {ilha}.')
+    for x in vendas:
+        if x == menor:
+            print(f'O menor valor de vendas foi {menor} de {ilhas[comprimento_ilhas]}')
+        if x == maior:
+            print(f'O maior valor de vendas foi {maior} de {ilhas[comprimento_ilhas]}')
         comprimento_ilhas += 1
-
