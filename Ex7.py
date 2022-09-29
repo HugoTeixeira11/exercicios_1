@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
     print()
     for x in range(len(vendas)):
-        for y in range(len(vendas[0])):
+        for y in range(len(vendas)):
             print(f'vendas[{x}][{y}]={vendas[x][y]}')
         print('xxxx')
 
