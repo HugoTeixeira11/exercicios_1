@@ -30,6 +30,18 @@ if __name__ == '__main__':
         [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0]
     ]
+"""
+    vendas = [
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0]
+    ]
+"""
+
+    totais = [0,0,0,0,0]
+
     while True :
         try:
             for x in range(len(tipos)):
@@ -44,7 +56,7 @@ if __name__ == '__main__':
                 for y in range(len(ilhas)):
                     total_tipo += vendas[x][y]
                     total_vendas += vendas[x][y]
-                print(f'Total de vendas de {tipos[x]} = {total_tipo}')
+                print(f'Total de {tipos[x]} = {total_tipo}')
             print(f'Total de vendas = {total_vendas}')
 
             # total de vendas e de vendas por ilha
@@ -53,10 +65,42 @@ if __name__ == '__main__':
                 for x in range(2):
                     total += vendas[x][y]
                 print(f'Total de vendas de {ilhas[y]} = {total}')
+                totais[y] = total
+
                 break
+
+            #ilhas com vendas maximas
+
+            maior = totais[0]
+            menor = totais[0]
+            for x in range(1, len(totais)):
+                if totais[x] > maior:
+                    maior = totais[x]
+                if totais[x] < menor:
+                    menor = totais[x]
+
+            ilhas_maior = []
+            ilhas_menor = []
+
+            for x in range(len(totais)):
+                if totais[x] == maior:
+                    ilhas_maior.append(ilhas[x])
+                if totais[x] == menor:
+                    ilhas_menor.append(ilhas[x])
+
+            print(totais)
+            print(f'ilhas_maior = {ilhas_maior} = {maior}')
+            print(f'ilhas_menor = {ilhas_menor} = {menor}')
+
+        #Qual ilha consumiu mais gasoleo
+        #Qual ilha consumiu mais gasolina
 
         except ValueError:
             print(f'Insira um valor válido para vendas.')
+
+    #Total vendas de combustivel FEITO
+    #Qual a ilha que vendeu mais combustivel
+    #A ilha que vendeu menos combustivel
 
 
 
