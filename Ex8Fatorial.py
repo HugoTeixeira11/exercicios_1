@@ -10,3 +10,4 @@ if __name__ == '__main__':
     while True:
         num = int(input('Insira um numero: '))
         print(fatorial(num))
+
