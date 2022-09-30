@@ -31,3 +31,11 @@ for x in range(1, 5):
                     estrelas[x] = asestrelas
                 break
     print(estrelas)
+
+
+    troquei = True
+    while troquei:
+            troquei = False
+            for x in range(4):
+                if numeros[x] > numeros[x+1]:
+                    troquei = True

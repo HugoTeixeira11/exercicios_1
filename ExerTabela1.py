@@ -39,7 +39,6 @@ if __name__ == '__main__':
         [0, 0]
     ]
 """
-
     totais = [0,0,0,0,0]
 
     while True :
