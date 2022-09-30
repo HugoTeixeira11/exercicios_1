@@ -1,127 +1,77 @@
 """
-Declare uma lista para guardar as vendas de gasolina e gas´´eo no grupo oriental
-Apresente:
 - Total das vendas
 - O total de vendas de gasolina
 - O total de vendas de gasóleo
 - O total de vendas para cada ilha
-Exemplo da estrutura de armazenamento das vendas:
-    vendas = [
-         TER PIC  FAI  GRA  SJR
-        [10, 20 , 30, 40 , 50], #Gasolina
-        [15, 25, 35, 45, 55]    #Gasoleo
-    ]
-    ou então:
-    vendas = [
-         Gasoleo
-          |  Gasolina
-        [10, 15], TER
-        [20, 25], PIC
-        [30, 35], FAI
-        [40, 45], GRA
-        [50, 55]  SJR
-    ]
+- Media de vendas
+- as ilhas que vendeu menos
+- as ilhas que vendeu mais
 """
 
 if __name__ == '__main__':
-    ilhas = ['Terceira', 'Pico', 'Graciosa', 'Faial', 'São Jorge']
+    ilhas = ['TER', 'PIC', 'FAI', 'GRA', 'SJR']
     tipos = ['Gasolina', 'Gasoleo']
-    vendas = [
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0]
-    ]
-"""
-    vendas = [
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0]
-    ]
-"""
-    totais = [0,0,0,0,0]
 
-    while True :
+    vendas = [
+        [0, 0, 0, 0, 0],     # 0   Gasolina
+        [0, 0, 0, 0, 0]      # 1   Gasoleo
+    ]
+
+    totais_ilhas = [0, 0, 0, 0, 0]
+    totais_tipo = [0, 0]
+
+    while True:
         try:
             for x in range(len(tipos)):
                 for y in range(len(ilhas)):
-                    vendas[x][y] = int(input(f'Qual o número de vendas na ilha {ilhas[y]} e do tipo {tipos[x]}: '))
-            print(vendas)
-
-            #total de vendas e de vendas por tipo
-            total_vendas = 0
+                    vendas[x][y] = int(input(f'Qual foi o número de vendas na {ilhas[y]} do tipo {tipos[x]}? '))
+            print(f'\n{vendas}')
+            total = 0
             for x in range(len(tipos)):
                 total_tipo = 0
                 for y in range(len(ilhas)):
                     total_tipo += vendas[x][y]
-                    total_vendas += vendas[x][y]
+                    totais_tipo[x] += vendas[x][y]
                 print(f'Total de {tipos[x]} = {total_tipo}')
-            print(f'Total de vendas = {total_vendas}')
 
-            # total de vendas e de vendas por ilha
-            for y in range(5):
-                total = 0
-                for x in range(2):
+            for y in range(len(ilhas)):
+                total_ilhas = 0
+                for x in range(len(tipos)):
                     total += vendas[x][y]
-                print(f'Total de vendas de {ilhas[y]} = {total}')
-                totais[y] = total
+                    total_ilhas += vendas[x][y]
+                    totais_ilhas[y] += vendas[x][y]
+                print(f'Total na {ilhas[y]} = {total_ilhas}')
+            print(f'Total = {total}')
 
-                break
+            media_vendas = total / len(vendas)
+            print(f'Média = {media_vendas}')
 
-            #ilhas com vendas maximas
+            print('')
+            print(f'Totais de ilhas {totais_ilhas}')
+            print(f'Totais de tipo {totais_tipo}')
 
-            maior = totais[0]
-            menor = totais[0]
-            for x in range(1, len(totais)):
-                if totais[x] > maior:
-                    maior = totais[x]
-                if totais[x] < menor:
-                    menor = totais[x]
+            menor = totais_ilhas[0]
+            maior = totais_ilhas[0]
+            for x in range(1, len(totais_ilhas)):
+                if totais_ilhas[x] > maior:
+                    maior = totais_ilhas[x]
+                if totais_ilhas[x] < menor:
+                    menor = totais_ilhas[x]
 
-            ilhas_maior = []
             ilhas_menor = []
+            ilhas_maior = []
+            for x in range(len(totais_ilhas)):
+                if totais_ilhas[x] == maior:
+                    ilhas_maior.append(totais_ilhas[x])
+                if totais_ilhas[x] == menor:
+                    ilhas_menor.append(totais_ilhas[x])
 
-            for x in range(len(totais)):
-                if totais[x] == maior:
-                    ilhas_maior.append(ilhas[x])
-                if totais[x] == menor:
-                    ilhas_menor.append(ilhas[x])
 
-            print(totais)
-            print(f'ilhas_maior = {ilhas_maior} = {maior}')
-            print(f'ilhas_menor = {ilhas_menor} = {menor}')
 
-        #Qual ilha consumiu mais gasoleo
-        #Qual ilha consumiu mais gasolina
+            print(f'')
+
+
+            break
 
         except ValueError:
-            print(f'Insira um valor válido para vendas.')
-
-    #Total vendas de combustivel FEITO
-    #Qual a ilha que vendeu mais combustivel
-    #A ilha que vendeu menos combustivel
-
-
-
-
-
-            #for y in range(len(vendas[0])):
-                #total_ilhas = 0
-                #for x in range(len(vendas)):
-                   # print(f'vendas[{x}][{y}]={vendas[x][y]}')
-                   # total_ilhas += vendas[x][y]
-              #  print(f'total de cada ilha = {total_ilhas}')
-
-
-
-               # for y in range(vendas(5):
-               # total_ilhas = 0
-               # for x in range(vendas(2):
-                  #  print(f'vendas[{x}][{y}]={vendas[x][y]}')
-                 #   total_ilhas += vendas[x][y]
-                #print(f'total de cada ilha = {total_ilhas}')
-
-
-
-
-
+            print('Insire um valor válido para vendas.')
