@@ -8,6 +8,12 @@ O número invertido é 6523367
 """
 
 if __name__ == '__main__':
-    numero = int(input(f'Insira um numero: '))
-    numero = str(numero)
-    print(f'O numero invertivo é {numero[::-1]}')
+
+    while True:
+        try:
+            numero = int(input(f'Insira um numero: '))
+            numero = str(numero)
+            print(f'O numero invertivo é {numero[::-1]}')
+            break
+        except ValueError:
+            print(f'Insere num numero')
