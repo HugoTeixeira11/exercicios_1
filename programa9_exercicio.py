@@ -31,13 +31,7 @@ if __name__ == '__main__':
         try:
             numeros = int(input('Escreve um digito: '))
 
-
-            numeros = str(numeros)
-
-            for x in range(len(numeros)):
-                print(f'{numeros[x]}')
-
-            if numeros == '-1':
+            if numeros < 0:
                 break
 
             lista_nums.append(numeros)
@@ -45,5 +39,11 @@ if __name__ == '__main__':
 
         except ValueError:
             print('Insira um valor valido')
-    print(numeros)
+
+
+    numeros = ''
+    for x in range(len(lista_nums)):
+        numeros += str(lista_nums[x])
+
+    print(f'O numero é {numeros}')
     print(f'Força')
